@@ -31,15 +31,18 @@ def notas(request):
         nota_apoderada = (nota_parcial * Decimal("0.4")) + (nota_final * Decimal("0.6"))
         return Response({"nota_apoderada": round(nota_apoderada, 2)}) 
     
-        if (nota_apoderada >= 90):
+    
+    if (nota_apoderada >= 90):
                 return Response({"detail": "Beca del 30% sobre el valor de la matrícula"}, status=status.HTTP_200_OK)
-        elif (nota_apoderada >= 89):
+    elif nota_apoderada >= 89:
                 return Response({"detail": "Beca del 20% sobre el valor de la matrícula"}, status=status.HTTP_200_OK)
-        else:
-                return Response({"detail": "Sin beca"}, status=status.HTTP_200_OK)
+    else:
+                return Response({"detail": "Sin beca"}, status=status.HTTP_200_OK)     
             
-    resultado.append({"nota_apoderada": round(nota_apoderada, 2), "beca": beca})
-    return Response(resultado)      
+         
+    
+
+
     
     
 
