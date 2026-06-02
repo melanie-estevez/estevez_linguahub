@@ -6,5 +6,7 @@ router = DefaultRouter()
 router.register(r"cursos", CursoViewSet, basename="cursos")
 router.register(r"estudiantes", EstudianteViewSet, basename="estudiantes")
 
-urlpatterns = []
+urlpatterns = [
+    
+]
 urlpatterns += router.urls
