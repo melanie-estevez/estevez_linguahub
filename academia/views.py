@@ -11,14 +11,14 @@ class CursoViewSet(viewsets.ModelViewSet):
     serializer_class = CursoSerializer
     permission_classes = [IsAdminOrReadOnly]
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    search_fields = ["nombre"]
-    ordering_fields = ["id", "nombre"]
+    search_fields = ["nombre", "activo"]
+    ordering_fields = ["id", "nombre", "activo"]
 
 class EstudianteViewSet(viewsets.ModelViewSet):
     queryset = Estudiante.objects.all().order_by("id")
     serializer_class = EstudianteSerializer
     permission_classes = [IsAdminOrReadOnly]
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    filterset_fields = ["curso", "nota_parcial", "nota_final"]
+    filterset_fields = ["curso", "nota_parcial", "nota_final", "valor_matricula"]
     search_fields = ["nombre", "numero_matricula"]
-    ordering_fields = ["id", "nombre", "numero_matricula", "nota_parcial", "nota_final"]
+    ordering_fields = ["id", "nombre", "numero_matricula", "nota_parcial", "nota_final", "valor_matricula"]
